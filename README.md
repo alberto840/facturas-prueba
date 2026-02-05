@@ -1,27 +1,115 @@
 # FacturacionExamen
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.3.
+This project is an invoice management application built with Angular 18, PrimeNG 17, and TailwindCSS. It simulates a backend using `json-server`, this readme has instructions in English and Spanish.
 
-## Development server
+Este proyecto es una aplicación de gestión de facturas construida con Angular 18, PrimeNG 17 y TailwindCSS. Simula un backend utilizando `json-server`, este readme tiene instrucciones en inglés y español.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+---
 
-## Code scaffolding
+## 🇺🇸 English
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Prerequisites
 
-## Build
+- Node.js (v18+ recommended)
+- npm
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Installation
 
-## Running unit tests
+1. Clone the repository (if applicable) or navigate to the project directory.
+2. Install dependencies:
+
+```bash
+npm install
+```
+
+### Running the Application
+
+To run the application properly, you need to start both the mock backend and the Angular frontend.
+
+#### 1. Start the Mock Backend (JSON Server)
+
+This command starts `json-server` on port 3000 to serve the data from `db.json`.
+
+```bash
+npm run api
+```
+
+#### 2. Start the Angular Development Server
+
+Open a **new terminal** and run:
+
+```bash
+ng serve
+```
+
+Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+
+### Running Unit Tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+```bash
+ng test
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### Technologies Used
 
-## Further help
+- **Angular**: v18
+- **PrimeNG**: v17
+- **TailwindCSS**: v3.4
+- **JSON Server**: Mock backend
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+---
+
+## 🇪🇸 Español
+
+### Prerrequisitos
+
+- Node.js (v18+ recomendado)
+- npm
+
+### Instalación
+
+1. Clona el repositorio (si aplica) o navega al directorio del proyecto.
+2. Instala las dependencias:
+
+```bash
+npm install
+```
+
+### Ejecutar la Aplicación
+
+Para ejecutar la aplicación correctamente, necesitas iniciar tanto el backend simulado como el frontend de Angular.
+
+#### 1. Iniciar el Backend Simulado (JSON Server)
+
+Este comando inicia `json-server` en el puerto 3000 para servir los datos de `db.json`.
+
+```bash
+npm run api
+```
+
+#### 2. Iniciar el Servidor de Desarrollo de Angular
+
+Abre una **nueva terminal** y ejecuta:
+
+```bash
+ng serve
+```
+
+Navega a `http://localhost:4200/`. La aplicación se recargará automáticamente si cambias alguno de los archivos fuente.
+
+### Ejecutar Pruebas Unitarias
+
+Ejecuta `ng test` para correr las pruebas unitarias a través de [Karma](https://karma-runner.github.io).
+
+```bash
+ng test
+```
+
+### Tecnologías Utilizadas
+
+- **Angular**: v18
+- **PrimeNG**: v17
+- **TailwindCSS**: v3.4
+- **JSON Server**: Backend simulado

@@ -1,0 +1,94 @@
+<div class="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8"
+    style="background: linear-gradient(30deg, #ffffff 0%, #5046e5 100%);">
+    <div class="w-full space-y-8 bg-white p-10 rounded-xl shadow-2xl">
+        <div>
+            <div class="w-full mt-2 text-center text-2xl font-bold text-gray-900">
+                <div class="flex justify-between items-center text">
+                    Hola, {{ customer?.name || 'Invitado' }}
+                    <div class="text-white text-base bg-red-500 px-3 py-1 rounded-xl cursor-pointer hover:bg-red-600 transition-colors" (click)="logout()">Cerrar Sesión</div>
+                </div>
+            </div>
+            <div class="mt-6">
+                <p-dataView #dv [value]="facturasPendientes?.facturas ?? []" [loading]="loading" layout="list">
+                    <ng-template pTemplate="header">
+                        <div class="flex justify-between items-center mb-4">
+                            <h2 class="text-xl font-semibold text-gray-600">Facturas Pendientes</h2>
+                        </div>
+                    </ng-template>
+                    
+                    <ng-template pTemplate="list" let-items>
+                        <div class="grid grid-cols-1 gap-4 p-4">
+                            @for (factura of items; track factura.id) {
+                                <div class="col-span-1">
+                                    <div class="bg-white border border-gray-200 rounded-lg shadow-md hover:shadow-lg transition-shadow p-6">
+                                        <div class="flex justify-between items-start">
+                                            <div class="flex-1">
+                                                <div class="flex items-center gap-3 mb-3">
+                                                    <i class="pi pi-file-edit text-3xl text-indigo-600"></i>
+                                                    <div>
+                                                        <h3 class="text-lg font-bold text-gray-900">{{ factura.service }}</h3>
+                                                        <p class="text-sm text-gray-500">Periodo: {{ factura.period }}</p>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="grid grid-cols-2 gap-4 mt-4">
+                                                    <div>
+                                                        <p class="text-xs text-gray-500 uppercase tracking-wide">Monto</p>
+                                                        <p class="text-2xl font-bold text-indigo-600">${{ factura.amount | number:'1.2-2' }}</p>
+                                                    </div>
+                                                    <div>
+                                                        <p class="text-xs text-gray-500 uppercase tracking-wide">Estado</p>
+                                                        <div class="mt-1">
+                                                            <p-tag 
+                                                                [value]="factura.status === 'pendiente' ? 'Pendiente' : 'Pagada'" 
+                                                                [severity]="factura.status === 'pendiente' ? 'warning' : 'success'">
+                                                            </p-tag>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="ml-4">
+                                                <button 
+                                                    pButton 
+                                                    type="button" 
+                                                    label="Pagar" 
+                                                    icon="pi pi-credit-card"
+                                                    class="p-button-rounded p-button-success"
+                                                    [disabled]="factura.status !== 'pendiente'"
+                                                    (click)="openPaymentDialog(factura)">
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </ng-template>
+                    
+                    <ng-template pTemplate="empty">
+                        <div class="text-center py-12">
+                            <i class="pi pi-inbox text-6xl text-gray-300 mb-4"></i>
+                            <p class="text-gray-500 text-lg">No se encontraron facturas pendientes</p>
+                        </div>
+                    </ng-template>
+                </p-dataView>
+
+                <p-dialog 
+                    header="Pago de Factura" 
+                    [(visible)]="visiblePagoDialog" 
+                    [modal]="true" 
+                    [style]="{width: '50vw'}" 
+                    [draggable]="false" 
+                    [resizable]="false">
+                    @if (selectedFactura) {
+                        <app-pago-factura 
+                            [factura]="selectedFactura" 
+                            (pagoRealizado)="onPagoRealizado()">
+                        </app-pago-factura>
+                    }
+                </p-dialog>
+            </div>
+        </div>
+    </div>
+</div>

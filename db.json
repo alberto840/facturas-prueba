@@ -1,0 +1,110 @@
+{
+  "customers": [
+    {
+      "id": 1,
+      "name": "TechNova Solutions S.A.",
+      "customer_code": "CUST-1001"
+    },
+    {
+      "id": 2,
+      "name": "Elena Rodríguez Pérez",
+      "customer_code": "CUST-1002"
+    },
+    {
+      "id": 3,
+      "name": "Suministros Globales SL",
+      "customer_code": "CUST-1003"
+    },
+    {
+      "id": 4,
+      "name": "Suministros Globales SL",
+      "customer_code": "CUST-1004"
+    }
+  ],
+  "facturas_pendientes": [
+    {
+      "id": 1,
+      "customer_id": 1,
+      "facturas": [
+        {
+          "id": 1,
+          "customer_id": 1,
+          "service": "Servicio Electricidad",
+          "amount": 1200,
+          "period": "2024-01",
+          "status": "pendiente"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "customer_id": 3,
+      "facturas": [
+        {
+          "id": 3,
+          "customer_id": 3,
+          "service": "Servicio Agua",
+          "amount": 350,
+          "period": "2024-01",
+          "status": "pagada"
+        },
+        {
+          "id": 4,
+          "customer_id": 3,
+          "service": "Servicio Gas",
+          "amount": 450,
+          "period": "2024-01",
+          "status": "pendiente"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "customer_id": 2,
+      "facturas": [
+        {
+          "id": 5,
+          "customer_id": 2,
+          "service": "Servicio Electricidad",
+          "amount": 1200,
+          "period": "2024-01",
+          "status": "pendiente"
+        },
+        {
+          "id": 6,
+          "customer_id": 2,
+          "service": "Servicio Agua",
+          "amount": 350,
+          "period": "2024-01",
+          "status": "pendiente"
+        }
+      ]
+    }
+  ],
+  "pagos": [
+    {
+      "id": 1,
+      "factura_id": 1,
+      "amount": 1200,
+      "payment_date": "2024-01-15",
+      "payment_method": "transferencia",
+      "payment_status": "pagada"
+    },
+    {
+      "id": 2,
+      "factura_id": 3,
+      "amount": 350,
+      "payment_date": "2024-01-20",
+      "payment_method": "tarjeta",
+      "payment_status": "pagada"
+    },
+    {
+      "id": 3,
+      "factura_id": 4,
+      "amount": 450,
+      "payment_date": "2024-01-25",
+      "payment_method": "transferencia",
+      "payment_status": "pagada"
+    }
+  ]
+}
