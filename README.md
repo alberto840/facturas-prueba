@@ -1,10 +1,11 @@
 # FacturacionExamen
 
 This project is an invoice management application built with Angular 18, PrimeNG 17, and TailwindCSS. It simulates a backend using `json-server`, this readme has instructions in English and Spanish.
-***The state management is trough observables due to the size of the proyect, if it was bigger it would have be done with NGXS
+-The state management is trough observables due to the size of the proyect, if it was bigger it would have be done with NGXS
 
 Este proyecto es una aplicación de gestión de facturas construida con Angular 18, PrimeNG 17 y TailwindCSS. Simula un backend utilizando `json-server`, este readme tiene instrucciones en inglés y español.
-***El manejo de estados esta hecho por observables debido al tamaño del proyecto, si fuese mas grande se haria con NGXS
+-El manejo de estados esta hecho por observables debido al tamaño del proyecto, si fuese mas grande se haria con NGXS
+
 ---
 
 ## 🇺🇸 English
